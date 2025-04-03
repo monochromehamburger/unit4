@@ -1,8 +1,18 @@
   
 void setup(){
   size(2500, 1500);
-  for(int i=0;i<10;i++){
-    house(random(0,2500), random(0,1500), random(0,1), random(0,2*PI));
+  int count=0;
+  int x=500;
+  int y=200;
+  while(count<8){
+    //house(random(0, 2500), random(0,1500), random(0,1), random(0,2*PI));
+    house(x, y, random(0,1), 0);
+    x+=500;
+    if(x>2000){
+      x=500;
+      y+=700;
+    }
+    count++;
   }
 }
 void window(int x, int y){
