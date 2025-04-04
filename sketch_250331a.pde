@@ -1,11 +1,11 @@
-  
+      
 void setup(){
   size(2500, 1500);
   int count=0;
   int x=500;
   int y=200;
   while(count<8){
-    //house(random(0, 2500), random(0,1500), random(0,1), random(0,2*PI));
+    // house(random(0, 2500), random(0,1500), random(0,1), random(0,2*PI));
     house(x, y, random(0,1), 0);
     x+=500;
     if(x>2000){
@@ -14,7 +14,7 @@ void setup(){
     }
     count++;
   }
-}
+}  
 void window(int x, int y){
   strokeWeight(2);
   fill(random(0,255), random(0,255), random(0,255));
@@ -26,7 +26,7 @@ void window(int x, int y){
 void base(){
   fill(random(0,255), random(0,255), random(0,255));
   triangle(0, -200, -200, 0, 200, 0);
-  fill(random(0,255), random(0,255), random(0,255));
+  fill(random(0,255), random(0,255), random(0,255)); 
   square(-200, 0, 400);
 }
 void door(){
