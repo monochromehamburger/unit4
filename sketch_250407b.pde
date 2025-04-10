@@ -33,6 +33,23 @@ void doge(int x, int y){
 void cat(int x, int y){
   pushMatrix();
   translate(x, y);
-  
+  int count=1;
+  while(count<=4){
+    //triangle(x-55+count*20, y+50, x-47+count*20, y+70, x-39+count*20, y+50);
+    rect(x-55+count*20, y+50, 10, 20);
+    count++;
+  }
+  circle(x, y, 120);
+  fill(0);
+  circle(x-40, y-20, 8);
+  circle(x, y-20, 8);
+  fill(255);
+  triangle(x-36, y-50, x-28, y-75, x-20, y-50);
+  pushMatrix();
+  translate(40, 0);
+  triangle(x-36, y-50, x-28, y-75, x-20, y-50);
+  popMatrix();
+  ellipse(x-40, y+10, 30, 10);
+
   popMatrix();
 }
