@@ -3,12 +3,33 @@
       
 void setup(){
   size(2500, 1500);
+  background(184, 219, 72);
+  int dogeCount=int(random(2,11));
+  int catCount=int(random(2,11));
+  int count=0;
+  fill(56, 204, 232);
+  rect(0, 0, 2500, 800);
+  pushMatrix();
+  translate(-1500, -500);
+  while(count<dogeCount){
+    doge(random(800,1100), random(700, 900));
+    count++;
+  }
+  int cloudCount=int(random(5,20));
+  count=0;
+  while(count<cloudCount){
+    clouds(random(0,2500), random(300,600));
+    count++;
+  }
+  base(3500, 1000);
+  count=0;
+  while(count<catCount){
+    cat(random(1500,1800), random(700, 900));
+    count++;
+  }
+  popMatrix();
 }
-void draw(){
-  doge(500, 500);
-  cat(1000, 500);
-}
-void doge(int x, int y){
+void doge(float x, float y){
   pushMatrix();
   translate(x, y);
   strokeWeight(2);
@@ -21,7 +42,7 @@ void doge(int x, int y){
   fill(0);
   circle(x+40, y+30, 8);
   circle(x+80, y+30, 8);
-  int count=1;
+  float count=1;
   fill(255);
   while(count<=4){
     rect(x+count*25-15, y+115, 10, 10); 
@@ -30,9 +51,11 @@ void doge(int x, int y){
   triangle(x-40, y+40, x-10, y+60, x-10, y+80); 
   popMatrix();
 }
-void cat(int x, int y){
+void cat(float x, float y){
   pushMatrix();
+  fill(255);
   translate(x, y);
+  strokeWeight(2);
   int count=1;
   while(count<=4){
     //triangle(x-55+count*20, y+50, x-47+count*20, y+70, x-39+count*20, y+50);
@@ -45,11 +68,40 @@ void cat(int x, int y){
   circle(x, y-20, 8);
   fill(255);
   triangle(x-36, y-50, x-28, y-75, x-20, y-50);
-  pushMatrix();
-  translate(40, 0);
-  triangle(x-36, y-50, x-28, y-75, x-20, y-50);
-  popMatrix();
+  triangle(x+4, y-50, x+12, y-75, x+20, y-50);
   ellipse(x-40, y+10, 30, 10);
 
   popMatrix();
+}
+void clouds(float x, float y){
+  pushMatrix();
+  translate(x, y);
+  fill(255);
+  noStroke();
+  int count=0;
+  while(count<2){
+    ellipse(x, y, random(50,200), random(50, 100));
+    count++;
+  }
+  strokeWeight(2);
+  stroke(0);
+  popMatrix();  
+}
+void base(float x, float y){
+  fill(255);
+  rect(x, y, 300, 750);
+  int count=0;
+  while(count<10){
+    fill(random(160, 210), random(100, 160), random(0, 30));
+    circle(random(x+50, x+250), random(y+50, y+600), random(40,100));
+    count++;
+  }
+  count=0;
+  fill(193, 140, 4);
+  while(count<10){
+    rect(x, y+count*75, 300, 20);
+    count++;
+  }
+  fill(0);
+  rect(x+100, y+600, 100, 150);
 }
