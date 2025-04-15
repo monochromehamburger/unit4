@@ -11,17 +11,18 @@ void setup(){
   rect(0, 0, 2500, 800);
   pushMatrix();
   translate(-1500, -500);
+  base(1500, 1000);
   while(count<dogeCount){
-    doge(random(800,1100), random(700, 900));
+    doge(random(900,1200), random(700, 900));
     count++;
   }
   int cloudCount=int(random(5,20));
   count=0;
   while(count<cloudCount){
-    clouds(random(0,2500), random(300,600));
+    clouds(random(0,2500), random(300,500));
     count++;
   }
-  base(3500, 1000);
+  base(3650, 1000);
   count=0;
   while(count<catCount){
     cat(random(1500,1800), random(700, 900));
@@ -88,7 +89,7 @@ void clouds(float x, float y){
   popMatrix();  
 }
 void base(float x, float y){
-  fill(255);
+  fill(random(0, 255), random(0, 255), random(0, 255));
   rect(x, y, 300, 750);
   int count=0;
   while(count<10){
