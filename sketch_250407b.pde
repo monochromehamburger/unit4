@@ -28,6 +28,12 @@ void setup(){
     cat(random(1500,1800), random(700, 900));
     count++;
   }
+  fill(255, 255, 0);
+  PFont font;
+  font = createFont("Comic Sans MS", 128);
+  textFont(font);
+  textSize(300);
+  text("Korea", 1500, 750);
   popMatrix();
 }
 void doge(float x, float y){
@@ -35,14 +41,9 @@ void doge(float x, float y){
   translate(x, y);
   strokeWeight(2);
   fill(255);
-  rect(x-10, y, 120, 120, 50);
-  triangle(x+10, y+10, x+25, y-25, x+40, y+10);
-  triangle(x+60, y+10, x+75, y-25, x+90, y+10);
-  rect(x+70, y+60, 40, 30);
-  line(x+70, y+75, x+110, y+75);
+  face(x, y);
   fill(0);
-  circle(x+40, y+30, 8);
-  circle(x+80, y+30, 8);
+  eyes(x, y);
   float count=1;
   fill(255);
   while(count<=4){
@@ -51,6 +52,17 @@ void doge(float x, float y){
   }
   triangle(x-40, y+40, x-10, y+60, x-10, y+80); 
   popMatrix();
+}
+void eyes(float x, float y){
+  circle(x+40, y+30, 8);
+  circle(x+80, y+30, 8); 
+}  
+void face(float x, float y){
+  rect(x-10, y, 120, 120, 50);
+  triangle(x+10, y+10, x+25, y-25, x+40, y+10);
+  triangle(x+60, y+10, x+75, y-25, x+90, y+10);
+  rect(x+70, y+60, 40, 30);
+  line(x+70, y+75, x+110, y+75);
 }
 void cat(float x, float y){
   pushMatrix();
@@ -88,8 +100,7 @@ void clouds(float x, float y){
   stroke(0);
   popMatrix();  
 }
-void base(float x, float y){
-  fill(random(0, 255), random(0, 255), random(0, 255));
+void decoration(float x, float y){
   rect(x, y, 300, 750);
   int count=0;
   while(count<10){
@@ -103,6 +114,11 @@ void base(float x, float y){
     rect(x, y+count*75, 300, 20);
     count++;
   }
+}
+void base(float x, float y){
+  fill(random(0, 255), random(0, 255), random(0, 255));
+  rect(x, y, 300, 750);
+  decoration(x, y);
   fill(0);
   rect(x+100, y+600, 100, 150);
 }
