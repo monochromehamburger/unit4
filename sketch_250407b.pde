@@ -75,16 +75,27 @@ void cat(float x, float y){
     rect(x-55+count*20, y+50, 10, 20);
     count++;
   }
+  catFace(x, y);
+  popMatrix();
+}
+void catFace(float x, float y){
   circle(x, y, 120);
+  noStroke();
+  fill(200);
+  circle(x, y, random(0,50));
+  strokeWeight(2);
+  stroke(0);
+  fill(255);
   fill(0);
   circle(x-40, y-20, 8);
   circle(x, y-20, 8);
   fill(255);
+  catEars(x, y);
+  ellipse(x-40, y+10, 30, 10);
+}
+void catEars(float x, float y){
   triangle(x-36, y-50, x-28, y-75, x-20, y-50);
   triangle(x+4, y-50, x+12, y-75, x+20, y-50);
-  ellipse(x-40, y+10, 30, 10);
-
-  popMatrix();
 }
 void clouds(float x, float y){
   pushMatrix();
@@ -93,12 +104,21 @@ void clouds(float x, float y){
   noStroke();
   int count=0;
   while(count<2){
-    ellipse(x, y, random(50,200), random(50, 100));
+    fill(random(200,255));
+    cloudSegments(x, y);
     count++;
   }
+  fill(255);
   strokeWeight(2);
   stroke(0);
   popMatrix();  
+}
+void cloudSegments(float x, float y){
+  int i=0;
+  while(i<3){
+    ellipse(x, y, random(50,200), random(50, 100));
+    i++;
+  }
 }
 void decoration(float x, float y){
   rect(x, y, 300, 750);
