@@ -32,8 +32,8 @@ void setup(){
   PFont font;
   font = createFont("Comic Sans MS", 128);
   textFont(font);
-  textSize(300);
-  text("Korea", 1500, 750);
+  textSize(200);
+  text("Korea (Battle Cats)", 1500, 675);
   popMatrix();
 }
 void doge(float x, float y){
@@ -51,6 +51,11 @@ void doge(float x, float y){
     count++;
   }
   triangle(x-40, y+40, x-10, y+60, x-10, y+80); 
+  fill(255, 0, 0);
+  rect(x, y-50, 100, 25);
+  fill(57, 255, 7);
+  rect(x, y-50, random(1, 100), 25);
+  fill(0);
   popMatrix();
 }
 void eyes(float x, float y){
