@@ -104,7 +104,7 @@ void catEars(float x, float y){
 }
 void clouds(float x, float y){
   pushMatrix();
-  translate(x, y);
+  translate(x, y);  
   fill(255);
   noStroke();
   int count=0;
@@ -128,8 +128,8 @@ void cloudSegments(float x, float y){
 void decoration(float x, float y){
   rect(x, y, 300, 750);
   int count=0;
-  while(count<10){
-    fill(random(160, 210), random(100, 160), random(0, 30));
+  while(count<15){
+    fill(random(120, 220), random(80, 160), random(0, 50));
     circle(random(x+50, x+250), random(y+50, y+600), random(40,100));
     count++;
   }
