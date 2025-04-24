@@ -1,6 +1,6 @@
 //project
 //battle cats
-
+int catBase=0;
 void setup() {
   size(2500, 1500);
   background(184, 219, 72);
@@ -28,6 +28,7 @@ void setup() {
     clouds(random(0, 2500), random(300, 500));
     count++;
   }
+  catBase=1;
   base(3650, 1000);
   count=0;
   while (count<catCount) {
@@ -161,4 +162,34 @@ void base(float x, float y) {
   decoration(x, y);
   fill(0);
   rect(x+100, y+600, 100, 150);
+  if(catBase==1){
+    fill(50, 50, 50);
+    int count=0;
+    while(count<50){
+      circle(x+50-count*2, y+300, 200);
+      count++;
+    }
+    fill(0);
+    circle(x-50, y+300, 175);
+    fill(60);
+    quad(x+200, y, x+220, y,  x+270, y-100,x+250, y-100);
+    quad(x+270, y-100, x+250, y-100,  x+200, y-200,x+220, y-200);
+    fill(239, 240, 12);  
+    pushMatrix();
+    translate(x+200, y-200);
+    rotate(-PI/4);
+    ellipse(0, 0, 160, 100);
+    fill(255);
+    ellipse(0, 0, 120, 75);
+    fill(239, 240, 12);
+    ellipse(0, 0, 80, 50);
+    rect(-5, -100, 10, 100, 10);
+    popMatrix();
+    fill(255);
+    strokeWeight(5);
+    circle(x+100, y+50, 25);
+    circle(x+200, y+50, 25);
+    strokeWeight(2);
+  }
+  
 }
